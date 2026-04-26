@@ -25,3 +25,4 @@ replay_pid*
 
 .env
 *.yaml
+.DS_Store
