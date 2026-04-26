@@ -1,0 +1,15 @@
+// 1. 자식은 부모가 이미 기능을 주입했으므로 버전 없는 java 플러그인만 있으면 충분합니다.
+plugins {
+    id 'java'
+}
+
+dependencies {
+    // 2. 공통 모듈 연결
+    implementation project(':module-common')
+
+    // 3. 체결 엔진에만 필요한 것들
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'com.lmax:disruptor:3.4.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+}

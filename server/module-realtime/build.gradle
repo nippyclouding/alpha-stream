@@ -1,0 +1,16 @@
+// 1. 플러그인: 버전 정보는 부모(Root)가 관리하므로 아이디만 적거나, 
+// 부모의 subprojects 설정을 믿고 아예 비워두셔도 됩니다.
+plugins {
+    id 'java'
+}
+
+// 2. 버전, 그룹, 자바 버전, 레포지토리 정보는 부모에게 물려받으므로 삭제하세요.
+
+dependencies {
+    // 3. 공통 창고(common) 연결
+    implementation project(':module-common')
+
+    // 4. 이 모듈(실시간 서버)에만 필요한 라이브러리 추가
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+}
