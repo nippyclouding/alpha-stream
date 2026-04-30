@@ -1,13 +1,13 @@
-package alphastream.modluerealtime;
+package alphastream.modulerealtime;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ModlueRealtimeApplication {
+public class ModuleRealtimeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ModlueRealtimeApplication.class, args);
+        SpringApplication.run(ModuleRealtimeApplication.class, args);
     }
 
 }

@@ -25,8 +25,12 @@ subprojects {
 	}
 
 	dependencies {
+		// [중요] 이게 있어야 모든 모듈에서 스프링 라이브러리를 인식합니다.
+		implementation 'org.springframework.boot:spring-boot-starter'
+
 		compileOnly 'org.projectlombok:lombok'
 		annotationProcessor 'org.projectlombok:lombok'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	}
 }

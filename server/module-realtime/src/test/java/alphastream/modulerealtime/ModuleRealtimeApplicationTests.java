@@ -1,10 +1,10 @@
-package alphastream.modluerealtime;
+package alphastream.modulerealtime;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ModlueRealtimeApplicationTests {
+class ModuleRealtimeApplicationTests {
 
     @Test
     void contextLoads() {

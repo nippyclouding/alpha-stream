@@ -1,15 +1,52 @@
-// 1. 자식은 부모가 이미 기능을 주입했으므로 버전 없는 java 플러그인만 있으면 충분합니다.
 plugins {
+
     id 'java'
+
+    id 'org.springframework.boot' version '3.4.1' apply false
+
+    id 'io.spring.dependency-management' version '1.1.7' apply false
+
 }
 
-dependencies {
-    // 2. 공통 모듈 연결
-    implementation project(':module-common')
 
-    // 3. 체결 엔진에만 필요한 것들
-    implementation 'org.springframework.boot:spring-boot-starter'
-    implementation 'org.springframework.kafka:spring-kafka'
-    implementation 'com.lmax:disruptor:3.4.4'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+allprojects {
+
+    group = 'alpha-stream'
+
+    version = '0.0.1-SNAPSHOT'
+
+
+
+    repositories {
+
+        mavenCentral()
+
+    }
+
+}
+
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+    bootJar { enabled = false }
+    jar { enabled = true }
 }
