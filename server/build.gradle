@@ -15,8 +15,11 @@ allprojects {
 
 subprojects {
 	apply plugin: 'java'
-	apply plugin: 'org.springframework.boot'
 	apply plugin: 'io.spring.dependency-management'
+
+	if (name != 'common-contracts') {
+		apply plugin: 'org.springframework.boot'
+	}
 
 	java {
 		toolchain {
@@ -24,13 +27,37 @@ subprojects {
 		}
 	}
 
+	dependencyManagement {
+		imports {
+			mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+		}
+	}
+
 	dependencies {
-		// [중요] 이게 있어야 모든 모듈에서 스프링 라이브러리를 인식합니다.
-		implementation 'org.springframework.boot:spring-boot-starter'
+		if (project.name != 'common-contracts') {
+			implementation 'org.springframework.boot:spring-boot-starter'
+			implementation 'org.springframework.boot:spring-boot-starter-actuator'
+		}
 
 		compileOnly 'org.projectlombok:lombok'
 		annotationProcessor 'org.projectlombok:lombok'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
 		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	}
+
+	tasks.named('test') {
+		useJUnitPlatform()
+	}
+
+	if (name != 'common-contracts') {
+		tasks.named('jar') {
+			enabled = false
+		}
+	}
+}
+
+project(':common-contracts') {
+	jar {
+		enabled = true
 	}
 }

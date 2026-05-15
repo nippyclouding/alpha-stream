@@ -1,6 +1,13 @@
-rootProject.name = 'server'
-include 'module-common'
-include 'module-api'
-include 'module-matching'
-include 'module-realtime'
-include 'module-batch'
+rootProject.name = 'alpha-stream-services'
+
+include 'common-contracts'
+include 'api-service'
+include 'matching-service'
+include 'realtime-service'
+include 'batch-service'
+
+project(':common-contracts').projectDir = file('module-common')
+project(':api-service').projectDir = file('module-api')
+project(':matching-service').projectDir = file('module-matching')
+project(':realtime-service').projectDir = file('module-realtime')
+project(':batch-service').projectDir = file('module-batch')

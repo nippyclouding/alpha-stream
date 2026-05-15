@@ -1,0 +1,6 @@
+{
+  "name": "Alpha Stream",
+  "description": "A high-performance stock trading PoC with real-time data, candle charts, and order books.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

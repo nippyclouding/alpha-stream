@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #2E90FA;
+  --color-up: #F04438;
+  --color-down: #2E90FA;
+  --color-bg-sleek: #F2F4F7;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-sleek text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .toss-card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100;
+  }
+
+  .toss-button {
+    @apply px-4 py-2 rounded-xl font-semibold transition-all active:scale-95 disabled:opacity-50;
+  }
+
+  .toss-button-primary {
+    @apply px-4 py-2 rounded-xl font-bold transition-all active:scale-95 disabled:opacity-50 bg-up text-white hover:brightness-110 shadow-lg shadow-red-100;
+  }
+
+  .toss-button-secondary {
+    @apply px-4 py-2 rounded-xl font-bold transition-all active:scale-95 disabled:opacity-50 bg-blue-50 text-down hover:bg-blue-100;
+  }
+
+  .toss-button-ghost {
+    @apply px-4 py-2 rounded-xl font-semibold transition-all active:scale-95 disabled:opacity-50 text-gray-600 hover:bg-gray-100;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 rounded-full hover:bg-gray-300;
+}

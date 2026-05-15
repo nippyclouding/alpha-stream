@@ -1,9 +1,5 @@
-
-plugins {
-    id 'java'
-}
 dependencies {
-    implementation project(':module-common')
+    implementation project(':common-contracts')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.kafka:spring-kafka'
     runtimeOnly 'org.postgresql:postgresql'

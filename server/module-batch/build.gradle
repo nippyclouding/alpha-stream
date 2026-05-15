@@ -1,6 +1,9 @@
 
 
 dependencies {
-    implementation project(':module-common')
+    implementation project(':common-contracts')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-batch'
+    runtimeOnly 'org.postgresql:postgresql'
+    testImplementation 'com.h2database:h2'
 }
